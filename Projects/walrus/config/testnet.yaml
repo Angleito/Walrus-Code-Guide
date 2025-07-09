@@ -1,0 +1,120 @@
+# Walrus Testnet Configuration
+# This file contains the configuration for connecting to the Walrus testnet
+
+# Network information
+network: testnet
+name: "Walrus Testnet"
+description: "Walrus decentralized storage testnet for development and testing"
+
+# Sui blockchain configuration
+sui:
+  rpc_url: "https://fullnode.testnet.sui.io:443"
+  network: "testnet"
+  
+# Walrus system objects on Sui (these may change with upgrades)
+walrus:
+  # System object containing global configuration
+  system_object: "0x98ebc47370603fe81d9e15491b2f1443d619d1dab720d586e429ed233e1255c1"
+  
+  # Staking pool for storage nodes
+  staking_pool: "0x20266a17b4f1a216727f3eef5772f8d486a9e3b5e319af80a5b75809c035561d"
+  
+  # Storage resource package
+  storage_package: "0x98ebc47370603fe81d9e15491b2f1443d619d1dab720d586e429ed233e1255c1"
+
+# Storage node endpoints
+storage_nodes:
+  # Public publisher endpoint
+  publisher_url: "https://publisher.testnet.walrus.space"
+  
+  # Public aggregator endpoint
+  aggregator_url: "https://aggregator.testnet.walrus.space"
+  
+  # Alternative endpoints (if available)
+  # publisher_backup: "https://publisher-backup.testnet.walrus.space"
+  # aggregator_backup: "https://aggregator-backup.testnet.walrus.space"
+
+# Default storage parameters
+defaults:
+  # Default number of epochs to store blobs
+  epochs: 3
+  
+  # Default deletable setting
+  deletable: false
+  
+  # Default timeout for operations (in seconds)
+  timeout: 30
+  
+  # Default retry attempts
+  retry_attempts: 3
+
+# Pricing information (approximate, may change)
+pricing:
+  # Base storage cost per epoch (in FROST)
+  base_cost_per_epoch: 1000000
+  
+  # Cost per byte per epoch (in FROST)
+  cost_per_byte_per_epoch: 100
+  
+  # Note: 1 WAL = 1,000,000,000 FROST
+
+# API configuration
+api:
+  # API version
+  version: "v1"
+  
+  # Rate limiting (requests per second)
+  rate_limit: 10
+  
+  # Request timeout (in seconds)
+  timeout: 30
+  
+  # User agent for requests
+  user_agent: "Walrus-Learning-Client/1.0"
+
+# Development and testing settings
+development:
+  # Enable verbose logging
+  verbose: true
+  
+  # Enable debug mode
+  debug: false
+  
+  # Test data directory
+  test_data_dir: "./test-data"
+  
+  # Enable mock mode (for testing without real transactions)
+  mock_mode: false
+
+# Monitoring and health check endpoints
+monitoring:
+  # Publisher health check
+  publisher_health: "https://publisher.testnet.walrus.space/v1/health"
+  
+  # Aggregator health check
+  aggregator_health: "https://aggregator.testnet.walrus.space/v1/health"
+  
+  # System status endpoint
+  system_status: "https://publisher.testnet.walrus.space/v1/system/status"
+
+# Security settings
+security:
+  # Verify TLS certificates
+  verify_tls: true
+  
+  # Enable request signing
+  sign_requests: true
+  
+  # Use secure random for key generation
+  secure_random: true
+
+# Experimental features (may change)
+experimental:
+  # Enable fan-out proxy support
+  fan_out_proxy: false
+  
+  # Enable compression
+  compression: false
+  
+  # Enable caching
+  caching: false 
